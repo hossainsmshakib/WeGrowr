@@ -1,43 +1,47 @@
 import { features } from "../constants";
 import styles, { layout } from "../style";
-import Button from "./Button";
 
-const FeatureCard = ({ icon, title, content, index }) => (
-  <div className={`flex flex-row p-6 rounded-[20px] ${index !== features.length - 1 ? "mb-6" : "mb-0"} feature-card`}>
-    <div className={`w-[64px] h-[64px] rounded-full ${styles.flexCenter} bg-dimBlue`}>
-      <img src={icon} alt="star" className="w-[50%] h-[50%] object-contain" />
-    </div>
-    <div className="flex-1 flex flex-col ml-3">
-      <h4 className="font-poppins font-semibold text-white text-[18px] leading-[23.4px] mb-1">
-        {title}
-      </h4>
-      <p className="font-poppins font-normal text-dimWhite text-[16px] leading-[24px]">
-        {content}
-      </p>
-    </div>
-  </div>
-);
+const centerTextStyles = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  height: "100vh", // Adjust the height as needed
+};
 
-const Business = () =>  (
-  <section id="features" className={layout.section}>
-    <div className={layout.sectionInfo}>
-      <h2 className={styles.heading2}>
-        You do the business, <br className="sm:block hidden" /> we’ll handle
-        the money.
+const fullPageTextStyles = {
+  width: "100%",
+  textAlign: "justify",
+  padding: "0 20px", // Adjust padding as needed
+};
+
+const headingStyles = {
+  fontSize: "52px", // Adjust the font size
+};
+
+const Business = () => (
+  <section id="features" className={layout.section} style={centerTextStyles}>
+    <div className={layout.sectionInfo} style={fullPageTextStyles}>
+      <h2 className={`${styles.heading2} text-center`} style={headingStyles}>
+        About WeGrowr
       </h2>
-      <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-        With the right credit card, you can improve your financial life by
-        building credit, earning rewards and saving money. But with hundreds
-        of credit cards on the market.
+      <p className={`${styles.paragraph} mt-5`}>
+        Welcome to WeGrowr Digital, a marketing firm led by marketing professionals with 16+ years of omni-channel
+        experience across B2C, B2B, B2B2C, managing startup to high-profile brands in FMEG, Retail, E-commerce,
+        Logistics, EdTech, HealthTech, InsureTech, Connectivity & IoT, Lifestyle & Food, across Asia Pacific, Southeast
+        Asia, MENA and emerging markets. In partnership with Codes N Creative, a leading Indian marketing agency
+        specialising in SEO & development, and holding a prestigious portfolio of clientele that include AIIMS, Alive
+        Wellness, Vurth Australia, Star World Wide Group etc., we aim to change the landscape of marketing in the
+        UK by increasing the visibility of local businesses on search engines, which can lead to more traffic, more leads,
+        and more sales while reducing your cost per acquisition and improving your bottom line.
+        At WeGrowr Digital, we specialize in content development and search engine optimization (SEO). Our team of
+        experienced writers, marketers, and SEO specialists are practitioners of data-driven marketing and work
+        together to create compelling content that engages your audience and drives traffic to your website. Our
+        expertise in SEO can add value to the bottom line of each business house in the UK. Whether you're looking to
+        improve your search rankings, increase conversions, or build brand awareness, we have the skills and expertise
+        to help you achieve your goals. With a focus on data-driven strategies and a commitment to delivering results,
+        we're committed to helping you succeed in today's digital landscape.
       </p>
-
-      <Button styles={`mt-10`} />
-    </div>
-
-    <div className={`${layout.sectionImg} flex-col`}>
-      {features.map((feature, index) => (
-        <FeatureCard key={feature.id} {...feature} index={index} />
-      ))}
     </div>
   </section>
 );
